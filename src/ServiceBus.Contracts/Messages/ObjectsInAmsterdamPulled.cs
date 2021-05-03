@@ -1,6 +1,6 @@
 ﻿namespace ServiceBus.Contracts.Messages
 {
-    public class ObjectsInAmsterdamPulled
+    public class ObjectsInAmsterdamPulled: IMessage
     {
         
     }

@@ -19,5 +19,6 @@
       <ProjectReference Include="..\Funda.Api\Funda.Api.csproj" />
       <ProjectReference Include="..\Funda.DataPulling\Funda.DataPulling.csproj" />
       <ProjectReference Include="..\ServiceBus.Contracts\ServiceBus.Contracts.csproj" />
+      <ProjectReference Include="..\ServiceBus.HandlingOmitting\ServiceBus.HandlingOmitting.csproj" />
     </ItemGroup>
 </Project>

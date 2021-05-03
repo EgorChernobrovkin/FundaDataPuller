@@ -41,7 +41,9 @@ namespace Api
                     .Map<PullObjectsInAmsterdam>(messageBusSettings.QueueNameToWrite)
                     .Map<PullObjectsWithGardenInAmsterdam>(messageBusSettings.QueueNameToWrite)
                     .Map<ObjectsInAmsterdamPulled>(messageBusSettings.QueueNameToListen)
-                    .Map<ObjectsWithGardenInAmsterdamPulled>(messageBusSettings.QueueNameToListen))
+                    .Map<ObjectsWithGardenInAmsterdamPulled>(messageBusSettings.QueueNameToListen)
+                    .Map<PullingObjectsInAmsterdamWasOmitted>(messageBusSettings.QueueNameToListen)
+                    .Map<PullingObjectsWithGardenInAmsterdamWasOmitted>(messageBusSettings.QueueNameToListen))
                 .Subscriptions(s => s.UseJsonFile(messageBusSettings.SubscriptionFilePath)));
             
             var cacheRepSettings = Configuration.GetSection("DistributedCacheRepositorySettings")
@@ -72,6 +74,8 @@ namespace Api
             {
                 await bus.Subscribe<ObjectsInAmsterdamPulled>();
                 await bus.Subscribe<ObjectsWithGardenInAmsterdamPulled>();
+                await bus.Subscribe<PullingObjectsInAmsterdamWasOmitted>();
+                await bus.Subscribe<PullingObjectsWithGardenInAmsterdamWasOmitted>();
             });
 
             app.UseHttpsRedirection();

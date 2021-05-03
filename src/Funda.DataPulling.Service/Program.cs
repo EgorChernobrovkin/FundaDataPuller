@@ -12,6 +12,7 @@ using Rebus.ServiceProvider;
 using Rebus.Transport.FileSystem;
 using ServiceBus.Contracts.Messages;
 using ServiceBus.Contracts.Settings;
+using ServiceBus.HandlingOmitting;
 
 namespace Funda.DataPulling.Service
 {
@@ -38,6 +39,7 @@ namespace Funda.DataPulling.Service
                     services.AddDistributedCacheRepository(cacheRepSettings.CacheRepositoryPath);
                     
                     var messageBusSettings = hostContext.Configuration.GetSection("MessageBusSettings").Get<MessageBusSettings>();
+                    services.AddMessageHandlingOmitting();
                     services.AutoRegisterHandlersFromAssemblyOf<Program>();
                     services.AddRebus((configure, provider) => configure
                         .Logging(l => l.MicrosoftExtensionsLogging(provider.GetRequiredService<ILoggerFactory>()))

@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Top10Calculator", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Top10Calculator.Tests", "tests\Funda.Top10Calculator.Tests\Funda.Top10Calculator.Tests.csproj", "{EA2CB891-59D3-44BF-85AD-032E10523F3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBus.HandlingOmitting", "src\ServiceBus.HandlingOmitting\ServiceBus.HandlingOmitting.csproj", "{D9D0A290-CEB2-4ACC-BB2A-4F644A0DB253}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{EA2CB891-59D3-44BF-85AD-032E10523F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA2CB891-59D3-44BF-85AD-032E10523F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA2CB891-59D3-44BF-85AD-032E10523F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D0A290-CEB2-4ACC-BB2A-4F644A0DB253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D0A290-CEB2-4ACC-BB2A-4F644A0DB253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D0A290-CEB2-4ACC-BB2A-4F644A0DB253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D0A290-CEB2-4ACC-BB2A-4F644A0DB253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1DBC52D1-937A-4830-8F82-6B5B3B8582A5} = {508990F1-51FB-43D8-97C8-EB55FD78A397}
@@ -95,5 +101,6 @@ Global
 		{833EC277-1A03-4D92-B3F8-69A86E7900A4} = {BBF46BDC-C2C4-4603-9254-F82EC619C52F}
 		{B6BE0B08-5B76-49FA-858F-8C9B0B100FDE} = {BBF46BDC-C2C4-4603-9254-F82EC619C52F}
 		{EA2CB891-59D3-44BF-85AD-032E10523F3F} = {BEF40071-6542-418C-A40A-E32ED849FB68}
+		{D9D0A290-CEB2-4ACC-BB2A-4F644A0DB253} = {BBF46BDC-C2C4-4603-9254-F82EC619C52F}
 	EndGlobalSection
 EndGlobal

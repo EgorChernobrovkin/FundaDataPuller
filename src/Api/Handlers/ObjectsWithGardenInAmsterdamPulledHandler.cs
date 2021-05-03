@@ -12,9 +12,9 @@ namespace Api.Handlers
     public class ObjectsWithGardenInAmsterdamPulledHandler: IHandleMessages<ObjectsWithGardenInAmsterdamPulled>, IHandleMessages<IFailed<ObjectsWithGardenInAmsterdamPulled>>
     {
         private readonly IHubContext<Top10Hub> _hub;
-        private readonly ILogger<ObjectsInAmsterdamPulledHandler> _logger;
+        private readonly ILogger _logger;
 
-        public ObjectsWithGardenInAmsterdamPulledHandler(IHubContext<Top10Hub> hub, ILogger<ObjectsInAmsterdamPulledHandler> logger)
+        public ObjectsWithGardenInAmsterdamPulledHandler(IHubContext<Top10Hub> hub, ILogger logger)
         {
             _hub = hub;
             _logger = logger;

@@ -1,6 +1,6 @@
 ﻿namespace ServiceBus.Contracts.Messages
 {
-    public class PullObjectsWithGardenInAmsterdam
+    public class PullObjectsWithGardenInAmsterdam: IMessage
     {
     }
 }
