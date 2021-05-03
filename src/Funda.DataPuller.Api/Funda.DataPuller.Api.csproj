@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Rebus.Microsoft.Extensions.Logging" Version="2.0.0" />
+        <PackageReference Include="Rebus.ServiceProvider" Version="6.4.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DistributedCache.Keys\DistributedCache.Keys.csproj" />
+      <ProjectReference Include="..\DistributedCacheRepository\DistributedCacheRepository.csproj" />
+      <ProjectReference Include="..\Funda.Top10Calculator\Funda.Top10Calculator.csproj" />
+      <ProjectReference Include="..\ServiceBus.Contracts\ServiceBus.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>
