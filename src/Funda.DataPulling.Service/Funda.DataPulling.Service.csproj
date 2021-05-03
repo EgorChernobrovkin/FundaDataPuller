@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>dotnet-WorkerService-915BBB61-B225-4847-A855-A7A2B4B90DBD</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+        <PackageReference Include="Rebus" Version="6.5.5" />
+        <PackageReference Include="Rebus.Microsoft.Extensions.Logging" Version="2.0.0" />
+        <PackageReference Include="Rebus.ServiceProvider" Version="6.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DistributedCache.Keys\DistributedCache.Keys.csproj" />
+      <ProjectReference Include="..\DistributedCacheRepository\DistributedCacheRepository.csproj" />
+      <ProjectReference Include="..\Funda.Api\Funda.Api.csproj" />
+      <ProjectReference Include="..\Funda.DataPulling\Funda.DataPulling.csproj" />
+      <ProjectReference Include="..\ServiceBus.Contracts\ServiceBus.Contracts.csproj" />
+    </ItemGroup>
+</Project>
