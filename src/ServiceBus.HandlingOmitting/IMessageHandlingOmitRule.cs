@@ -1,5 +1,4 @@
-﻿using System;
-using ServiceBus.Contracts.Messages;
+﻿using ServiceBus.Contracts.Messages;
 
 namespace ServiceBus.HandlingOmitting
 {
