@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Funda.Domain;
 
-namespace Funda.Top10Calculator.Entities
+namespace Funda.Top10Calculator.Models
 {
     public class Top10Agents
     {

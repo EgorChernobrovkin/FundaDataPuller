@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ServiceBus.Contracts.Messages;
 
 namespace ServiceBus.HandlingOmitting
 {
     public class MessageHandlingOmitManager: IMessageHandlingOmitManager
     {
-        private readonly Dictionary<IMessage, IMessageHandlingOmitRule> _rules = new();
+        private readonly Dictionary<Type, IMessageHandlingOmitRule> _rules = new();
         
         public bool CheckIfItShouldBeOmitted(IMessage message)
         {
-            var rule = _rules.GetValueOrDefault(message);
+            var rule = _rules.GetValueOrDefault(message.GetType());
             return rule != null && rule.ShouldItBeOmitted();
         }
 
@@ -25,7 +26,7 @@ namespace ServiceBus.HandlingOmitting
         private void AddRule(IMessage message, IMessageHandlingOmitRule rule = null)
         {
             if (rule != null)
-                _rules[message] = rule;
+                _rules[message.GetType()] = rule;
         }
     }
 }

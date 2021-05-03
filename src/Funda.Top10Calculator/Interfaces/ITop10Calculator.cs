@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Funda.Domain;
-using Funda.Top10Calculator.Entities;
+using Funda.Top10Calculator.Models;
 
 namespace Funda.Top10Calculator.Interfaces
 {

@@ -1,0 +1,15 @@
+<div>
+  <h3>Top 10 Real Estate Agents in Amsterdam</h3>
+</div>
+<div class="button-row">
+  <button mat-button color="primary" (click)="requestUpdate()">Request Update</button>
+  <button mat-fab color="primary" (click)="getCurrentData()">
+    <mat-icon>autorenew</mat-icon>
+  </button>
+</div>
+<div *ngIf="dataUpdating$ | async">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div>
+  <app-top10-table-view [top10Agents]="top10Agents$ | async"></app-top10-table-view>
+</div>

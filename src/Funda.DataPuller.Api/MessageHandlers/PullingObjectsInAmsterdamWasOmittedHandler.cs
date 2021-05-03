@@ -5,14 +5,14 @@ using Microsoft.Extensions.Logging;
 using Rebus.Handlers;
 using ServiceBus.Contracts.Messages;
 
-namespace Funda.DataPuller.Api.Handlers
+namespace Funda.DataPuller.Api.MessageHandlers
 {
     public class PullingObjectsInAmsterdamWasOmittedHandler: IHandleMessages<PullingObjectsInAmsterdamWasOmitted>
     {
         private readonly IHubContext<Top10Hub> _hub;
-        private readonly ILogger _logger;
+        private readonly ILogger<PullingObjectsInAmsterdamWasOmittedHandler> _logger;
 
-        public PullingObjectsInAmsterdamWasOmittedHandler(IHubContext<Top10Hub> hub, ILogger logger)
+        public PullingObjectsInAmsterdamWasOmittedHandler(IHubContext<Top10Hub> hub, ILogger<PullingObjectsInAmsterdamWasOmittedHandler> logger)
         {
             _hub = hub;
             _logger = logger;

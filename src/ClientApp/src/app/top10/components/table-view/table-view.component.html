@@ -1,0 +1,24 @@
+<div>
+  <mat-table [dataSource]="top10Agents.agents">
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> Number </mat-header-cell>
+      <mat-cell *matCellDef="let row; let number = index"> {{number+1}} </mat-cell>
+    </ng-container>
+
+    <!-- Age Definition -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Agent name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.realEstateAgentName}} </mat-cell>
+    </ng-container>
+
+    <!-- Title Definition -->
+    <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef> Number of objects </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.numberOfObjects}} </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['position', 'name', 'number']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['position', 'name', 'number']; let i = index"></mat-row>
+  </mat-table>
+</div>

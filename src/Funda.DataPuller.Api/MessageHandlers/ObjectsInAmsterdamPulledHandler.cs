@@ -11,9 +11,9 @@ namespace Funda.DataPuller.Api.MessageHandlers
     public class ObjectsInAmsterdamPulledHandler: IHandleMessages<ObjectsInAmsterdamPulled>, IHandleMessages<IFailed<ObjectsInAmsterdamPulled>>
     {
         private readonly IHubContext<Top10Hub> _hub;
-        private readonly ILogger _logger;
+        private readonly ILogger<ObjectsInAmsterdamPulledHandler> _logger;
 
-        public ObjectsInAmsterdamPulledHandler(IHubContext<Top10Hub> hub, ILogger logger)
+        public ObjectsInAmsterdamPulledHandler(IHubContext<Top10Hub> hub, ILogger<ObjectsInAmsterdamPulledHandler> logger)
         {
             _hub = hub;
             _logger = logger;

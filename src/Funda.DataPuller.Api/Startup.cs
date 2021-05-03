@@ -56,7 +56,16 @@ namespace Funda.DataPuller.Api
             services.AddDistributedCacheRepository(cacheRepSettings.CacheRepositoryPath);
             services.AddFundaTop10Calculator();
             services.AddSignalR();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder
+                    .WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Funda.DataPuller.Api", Version = "v1"});
@@ -85,12 +94,14 @@ namespace Funda.DataPuller.Api
 
             app.UseRouting();
 
+            app.UseCors("CorsPolicy");
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<Top10Hub>("/top10hub");
+                endpoints.MapHub<Top10Hub>("/hub/top10");
             });
         }
     }
