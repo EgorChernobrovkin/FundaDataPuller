@@ -9,7 +9,7 @@ namespace Funda.DataPulling
         public static void AddFundaPullingLogic(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(FundaDataPullingServiceModule));
-            services.AddSingleton<IFundaDataPullingService, FundaDataPullingService>();
+            services.AddScoped<IFundaDataPullingService, FundaDataPullingService>();
         }
     }
 }
