@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.HubConfig;
 using CacheRepository;
 using DistributedCache.Keys;
 using Funda.Domain;
 using Funda.Top10Calculator.Entities;
 using Funda.Top10Calculator.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Rebus.Bus;
 using ServiceBus.Contracts.Messages;
 
@@ -21,20 +23,23 @@ namespace Api.Controllers
         private readonly IDistributedCacheRepository _distributedCacheRepository;
         private readonly ITop10Calculator _top10Calculator;
 
-        public Top10Controller(IBus bus, IDistributedCacheRepository distributedCacheRepository, ITop10Calculator top10Calculator)
+        public Top10Controller(
+            IBus bus, 
+            IDistributedCacheRepository distributedCacheRepository, 
+            ITop10Calculator top10Calculator)
         {
             _bus = bus;
             _distributedCacheRepository = distributedCacheRepository;
             _top10Calculator = top10Calculator;
         }
 
-        [HttpGet("RequestTop10")] //TODO: switch to put
+        [HttpPut("All")]
         public Task RequestTop10()
         {
             return _bus.Send(new PullObjectsInAmsterdam());
         }
 
-        [HttpGet("RequestTop10ByGarden")] //TODO: switch to put
+        [HttpPut("ByGarden")]
         public Task RequestTop10ByGarden()
         {
             return _bus.Send(new PullObjectsWithGardenInAmsterdam());
@@ -51,7 +56,7 @@ namespace Api.Controllers
             return res.ToArray();
         }
 
-        [HttpGet("Top10")]
+        [HttpGet("All")]
         public async Task<Top10Agents> GetTop10RealEstateAgents()
         {
             var exists = await _distributedCacheRepository.DoesExist(DistributedCacheKeys.AllObjectsInAmsterdam);
@@ -62,7 +67,7 @@ namespace Api.Controllers
             return _top10Calculator.CalculateTop10Agents(res);
         }
 
-        [HttpGet("Top10ByGarden")]
+        [HttpGet("ByGarden")]
         public async Task<Top10Agents> GetTop10RealEstateAgentsByGarden()
         {
             var exists = await _distributedCacheRepository.DoesExist(DistributedCacheKeys.AllObjectsInAmsterdamWithGarden);

@@ -1,3 +1,4 @@
+using Api.HubConfig;
 using CacheRepository;
 using Funda.Top10Calculator;
 using Microsoft.AspNetCore.Builder;
@@ -47,6 +48,7 @@ namespace Api
                 .Get<DistributedCacheRepositorySettings>();
             services.AddDistributedCacheRepository(cacheRepSettings.CacheRepositoryPath);
             services.AddFundaTop10Calculator();
+            services.AddSignalR();
             
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "../ClientApp/dist"; });
@@ -86,6 +88,7 @@ namespace Api
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapHub<Top10Hub>("/top10hub");
             });
 
             app.UseSpa(spa =>
